@@ -114,10 +114,10 @@ is-number@^7.0.0:
   resolved "https://registry.npm.taobao.org/is-number/download/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss=
 
-lilith-painter@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/lilith-painter/-/lilith-painter-0.1.1.tgz#075e7b8279127359c864b10a4fb43e8b31333914"
-  integrity sha512-7B7VnPDgI06HuS7tcy3sGwmQTA2BMd3wGGpYDqb2j7PgLzwDTNQFJLcDm0hhr3UFs0C6p9T+Lk76S/5vdj744A==
+lilith-painter@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/lilith-painter/-/lilith-painter-0.1.2.tgz#7a0fdc1db643a3dfd59d1cbe37ab5514dbc2ae20"
+  integrity sha512-xJmlWCancd335e9jIBN+kse9x/nXJh14Q0u73/uprlogom2rAGRcaVeHXt1Sfygl6sITJklC08t+kgdPcvkCkA==
 
 nanoid@^3.1.23:
   version "3.1.23"
