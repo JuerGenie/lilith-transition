@@ -1,5 +1,11 @@
 # LILITH-TRANSITION
 
+## DONT'T USE LILITH-TRANSITION
+
+I found some problem with vite's built, `import.meta` was empty object after compile.
+
+I'm finding solution now.
+
 ### WHAT
 
 LILITH-TRANSITION is a toy project that used Paint API (Houdini APIs), it add just one transition-paint to simulation dot-transition.
