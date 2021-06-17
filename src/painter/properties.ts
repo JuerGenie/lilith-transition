@@ -1,5 +1,10 @@
-import { define_properties, enum_utils } from "lilith-painter";
-import { IsKeywordValue, IsStyleValue, IsUnitValue } from "lilith-painter";
+import {
+  define_properties,
+  enum_utils,
+  IsKeywordValue,
+  IsStyleValue,
+  IsUnitValue,
+} from "lilith-painter";
 
 export enum TransitionProperties {
   // 颜色
