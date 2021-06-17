@@ -1,0 +1,116 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+
+  .row {
+    .col {
+      display: inline-block;
+    }
+  }
+
+  .demo-wrapper {
+    --size: 300px;
+    width: var(--size);
+    height: var(--size);
+    &.small {
+      --size: 200px;
+    }
+    &.normal {
+      --size: 300px;
+    }
+    &.large {
+      --size: 400px;
+    }
+  }
+
+  .lilith-transition {
+    &.animation {
+      animation: lilith-transition-animation linear 4s infinite;
+    }
+
+    width: 100%;
+    height: 100%;
+
+    background-image: paint(lilith-transition);
+    --lilith-transition-position: 0%;
+    --lilith-transition-max-size: 40px;
+    --lilith-transition-density: 20px;
+    --lilith-transition-length: 100%;
+
+    &.horizontal {
+      --lilith-transition-direction: horizontal;
+    }
+    &.vertical {
+      --lilith-transition-direction: vertical;
+    }
+
+    &.fade-in {
+      --lilith-transition-style: fade-in;
+    }
+    &.fade-out {
+      --lilith-transition-style: fade-out;
+    }
+    &.fade-in-out {
+      --lilith-transition-style: fade-in-out;
+    }
+  }
+
+  .under-mask {
+    background: url("../static/avatar.png");
+    background-size: cover;
+
+    .inner {
+      width: 100%;
+      height: 100%;
+
+      background: #19212caa;
+      background-size: cover;
+      mask-image: paint(lilith-transition);
+      -webkit-mask-image: paint(lilith-transition);
+
+      --lilith-transition-position: 150%;
+      --lilith-transition-length: 50%;
+      --lilith-transition-max-size: 10px;
+      --lilith-transition-density: 10px;
+      --lilith-transition-style: fade-out;
+      --lilith-transition-direction: vertical;
+      --lilith-transition-color: #fff;
+
+      transition: --lilith-transition-position 2s ease-out;
+
+      > div {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 1rem;
+
+        h1 {
+          margin: 0 0 1rem 0;
+        }
+        h3 {
+          margin: 0.25rem;
+        }
+        h4 {
+          margin: 0 0 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes lilith-transition-animation {
+  0% {
+    --lilith-transition-position: -100%;
+  }
+  100% {
+    --lilith-transition-position: 200%;
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link type="image/svg+xml" href="favicon.svg" rel="icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="lilith-debug" content="true" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>HELLO LILITH!</h1>
+      <div class="row">
+        <h2>HORIZONTAL</h2>
+        <div class="col">
+          <h3>FADE-IN</h3>
+          <div class="demo-wrapper small">
+            <div class="lilith-transition horizontal fade-in animation"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>FADE-OUT</h3>
+          <div class="demo-wrapper small">
+            <div class="lilith-transition horizontal fade-out animation"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>FADE-IN-OUT</h3>
+          <div class="demo-wrapper small">
+            <div
+              class="lilith-transition horizontal fade-in-out animation"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2>VERTICAL</h2>
+        <div class="col">
+          <h3>FADE-IN</h3>
+          <div class="demo-wrapper small">
+            <div class="lilith-transition vertical fade-in animation"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>FADE-OUT</h3>
+          <div class="demo-wrapper small">
+            <div class="lilith-transition vertical fade-out animation"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>FADE-IN-OUT</h3>
+          <div class="demo-wrapper small">
+            <div class="lilith-transition vertical fade-in-out animation"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2>DEMO</h2>
+        <div class="col">
+          <h3>WITH MASK</h3>
+          <div class="demo-wrapper large under-mask">
+            <!-- <div class="lilith-transition vertical fade-in"></div> -->
+            <div class="inner">
+              <div>
+                <h3>THIS IS</h3>
+                <h1>LILITH-TRANSITION</h1>
+                <br />
+                <h4>POWERED BY @JUERGENIE</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/example/main.ts" type="module"></script>
+  </body>
+</html>
