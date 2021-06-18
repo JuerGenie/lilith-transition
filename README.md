@@ -1,11 +1,5 @@
 # LILITH-TRANSITION
 
-## DONT'T USE LILITH-TRANSITION
-
-I found some problem with vite's built, `import.meta` was empty object after compile.
-
-I'm finding solution now.
-
 ### WHAT
 
 LILITH-TRANSITION is a toy project that used Paint API (Houdini APIs), it add just one transition-paint to simulation dot-transition.
@@ -17,22 +11,6 @@ No reason, just want to try **new** things😀.
 ### HOW
 
 #### How to import `LILITH-TRANSITION`
-
-- Use typescript or node.js:
-
-  1. install `LILITH-TRANSITION`:
-
-     ```sh
-     npm install lilith-transition
-     ```
-
-  2. import it:
-
-     ```typescript
-     import "lilith-transition"
-     ```
-
-  3. now it's work!
 
 - Use CDN:
 
@@ -78,8 +56,9 @@ And if you want know what is the example's look like, you can try:
 
 1. clone this repository
 2. run `yarn`
-3. run `yarn dev`
-4. open web page `http://127.0.0.1:4800`
+3. run `yarn watch`
+4. open new terminal, run `yarn dev`
+5. open web page `http://127.0.0.1:8080`
 
 this example page look like:
 
