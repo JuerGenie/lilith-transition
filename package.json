@@ -1,6 +1,6 @@
 {
   "name": "lilith-transition",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "Apache-2.0",
   "author": {
     "name": "Juergenie Whang",
@@ -27,6 +27,6 @@
     "vite": "^2.3.7"
   },
   "dependencies": {
-    "lilith-painter": "^0.1.1"
+    "lilith-painter": "^0.1.2"
   }
 }
