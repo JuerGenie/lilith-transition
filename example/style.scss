@@ -59,48 +59,50 @@
     }
   }
 
-  .under-mask {
-    background: url("/static/avatar.png");
-    background-size: cover;
+  .with-mask {
+    position: relative;
 
-    .inner {
+    .top {
       width: 100%;
       height: 100%;
-
-      background: #19212caa;
+      background: url("/static/avatar.png");
       background-size: cover;
+
       mask-image: paint(lilith-transition);
       -webkit-mask-image: paint(lilith-transition);
 
-      --lilith-transition-position: 150%;
+      --lilith-transition-position: 100%;
       --lilith-transition-length: 50%;
       --lilith-transition-max-size: 10px;
       --lilith-transition-density: 10px;
-      --lilith-transition-style: fade-out;
+      --lilith-transition-style: fade-in;
       --lilith-transition-direction: vertical;
       --lilith-transition-color: #fff;
 
       transition: --lilith-transition-position 2s ease-out;
+    }
+    .bottom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
 
-      > div {
-        height: 100%;
-        width: 100%;
-        color: #fff;
+      height: 100%;
+      width: 100%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 1rem;
 
-        h1 {
-          margin: 0 0 1rem 0;
-        }
-        h3 {
-          margin: 0.25rem;
-        }
-        h4 {
-          margin: 0 0 1rem 0;
-        }
+      h1 {
+        margin: 0 0 1rem 0;
+      }
+      h3 {
+        margin: 0.25rem;
+      }
+      h4 {
+        margin: 0 0 1rem 0;
       }
     }
   }
