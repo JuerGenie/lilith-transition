@@ -32,4 +32,4 @@ jobs:
         run: rm -rf ./dist && yarn build
 
       - name: Release
-        run: mv ./dist ./release && git add ./release && git push
+        run: mv ./dist ./release && git add ./release && git commit -m 'release by ${{ github.actor }}.' && git push
