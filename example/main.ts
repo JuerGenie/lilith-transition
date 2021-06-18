@@ -1,6 +1,4 @@
 import "./style.scss";
-// import in module file, or import on script tag with 'type="module"', like this: <script type="module" src="../src/index.ts"></script>
-import "../src";
 
 const demo_under_mask = document.querySelector(".under-mask") as HTMLDivElement;
 const demo_transition = demo_under_mask.querySelector(

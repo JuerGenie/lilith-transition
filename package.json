@@ -11,20 +11,30 @@
   "module": "dist/lilith-transition.es.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
+    "dist/types",
+    "dist/index.js",
+    "dist/index.js.map",
     "src",
-    "vite.config.ts"
+    "rollup.config.js",
+    "license",
+    "README.md",
+    "tsconfig.json"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "dev": "live-server",
+    "watch": "rollup -c -w",
+    "build": "rollup -c"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
     "@types/node": "^15.12.2",
+    "live-server": "^1.2.1",
+    "rollup": "^2.52.1",
+    "rollup-plugin-scss": "^2.6.1",
     "sass": "^1.35.1",
-    "typescript": "^4.3.2",
-    "vite": "^2.3.7"
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.2"
   },
   "dependencies": {
     "lilith-painter": "^0.1.2"
