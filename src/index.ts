@@ -41,34 +41,41 @@ try {
   }
 
   /**
-   * 计算当前点绘制半径。
-   * @param x x坐标
-   * @param y y坐标
-   * @param position 当前进度坐标
+   * 一次性计算出所有的半径，只需计算一行即可。
+   * @param position 当前过渡进度
    * @param length 渐变长度
-   * @param direction 渐变方向
+   * @param total_length 总长，根据 --lilith-transition-direction 不同而不同
    * @param style 渐变风格
-   * @param max_size 最大绘制点
-   * @returns 半径，单位 px
+   * @param max_size 最大半径
+   * @param density 网点间隔
+   * @returns
    */
-  function calc_radius(
-    x: number,
-    y: number,
+  function calc_all_radius(
     position: number,
     length: number,
-    direction: TransitionDirection,
+    total_length: number,
     style: TransitionStyle,
-    max_size: number
-  ): number {
-    const ref = direction === TransitionDirection.HORIZONTAL ? x : y;
-    const offset = Math.abs(position - ref);
+    max_size: number,
+    density: number
+  ): number[] {
+    const offset = (total_length / 2) % density;
+    position += offset;
 
-    return (style === TransitionStyle.FADE_IN && ref <= position) ||
-      (style === TransitionStyle.FADE_OUT && ref >= position)
-      ? max_size
-      : offset >= length
-      ? 0
-      : (1 - offset / length) * max_size;
+    const result = new Array<number>(Math.ceil(total_length / density) + 1)
+      .fill(0)
+      .map((_, index) => {
+        const ref = index * density;
+        const offset = Math.abs(position - ref);
+
+        return (style === TransitionStyle.FADE_IN && ref <= position) ||
+          (style === TransitionStyle.FADE_OUT && ref >= position)
+          ? max_size
+          : offset >= length
+          ? 0
+          : (1 - offset / length) * max_size;
+      });
+
+    return result;
   }
 
   interface Rect {
@@ -96,6 +103,7 @@ try {
   register("lilith-transition", lilith_properties, (ctx, geom, properties) => {
     const direction = properties.get(TransitionProperties.DIRECTION)
       .value as TransitionDirection;
+    const is_horizontal = direction === TransitionDirection.HORIZONTAL;
     const ref =
       direction === TransitionDirection.HORIZONTAL ? geom.width : geom.height;
     const position = to_pixel(
@@ -125,27 +133,31 @@ try {
       y: (geom.height / 2) % density,
     };
 
+    const radius = calc_all_radius(
+      position,
+      length,
+      ref,
+      style,
+      max_size,
+      density
+    );
+    if (!is_horizontal) {
+      ctx.transform(1, 0, 0, 1, geom.width, 0);
+      ctx.rotate(Math.PI / 2);
+    }
+
     ctx.fillStyle = color;
-    for (let x = -offset.x; x <= geom.width; x += density) {
-      for (let y = -offset.y; y <= geom.height; y += density) {
-        const size = calc_radius(
-          x,
-          y,
-          position,
-          length,
-          direction,
-          style,
-          max_size
-        );
-        if (size) {
+    for (let y = -offset.y; y <= geom.height; y += density) {
+      radius.forEach((r, i) => {
+        if (r) {
           draw_diamond(ctx, {
-            x,
+            x: i * density - offset.x,
             y,
-            width: size * 2,
-            height: size * 2,
+            width: r * 2,
+            height: r * 2,
           });
         }
-      }
+      });
     }
   });
 
