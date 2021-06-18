@@ -1,0 +1,101 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+#app .row .col {
+  display: inline-block;
+}
+#app .demo-wrapper {
+  --size: 300px;
+  width: var(--size);
+  height: var(--size);
+}
+#app .demo-wrapper.small {
+  --size: 200px;
+}
+#app .demo-wrapper.normal {
+  --size: 300px;
+}
+#app .demo-wrapper.large {
+  --size: 400px;
+}
+#app .lilith-transition {
+  width: 100%;
+  height: 100%;
+  background-image: paint(lilith-transition);
+  --lilith-transition-position: 0%;
+  --lilith-transition-max-size: 40px;
+  --lilith-transition-density: 20px;
+  --lilith-transition-length: 100%;
+}
+#app .lilith-transition.animation {
+  animation: lilith-transition-animation linear 4s infinite;
+}
+#app .lilith-transition.horizontal {
+  --lilith-transition-direction: horizontal;
+}
+#app .lilith-transition.vertical {
+  --lilith-transition-direction: vertical;
+}
+#app .lilith-transition.fade-in {
+  --lilith-transition-style: fade-in;
+}
+#app .lilith-transition.fade-out {
+  --lilith-transition-style: fade-out;
+}
+#app .lilith-transition.fade-in-out {
+  --lilith-transition-style: fade-in-out;
+}
+#app .with-mask {
+  position: relative;
+}
+#app .with-mask .top {
+  width: 100%;
+  height: 100%;
+  background: url("/static/avatar.png");
+  background-size: cover;
+  mask-image: paint(lilith-transition);
+  -webkit-mask-image: paint(lilith-transition);
+  --lilith-transition-position: 100%;
+  --lilith-transition-length: 50%;
+  --lilith-transition-max-size: 10px;
+  --lilith-transition-density: 10px;
+  --lilith-transition-style: fade-in;
+  --lilith-transition-direction: vertical;
+  --lilith-transition-color: #fff;
+  transition: --lilith-transition-position 2s ease-out;
+}
+#app .with-mask .bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+#app .with-mask .bottom h1 {
+  margin: 0 0 1rem 0;
+}
+#app .with-mask .bottom h3 {
+  margin: 0.25rem;
+}
+#app .with-mask .bottom h4 {
+  margin: 0 0 1rem 0;
+}
+
+@keyframes lilith-transition-animation {
+  0% {
+    --lilith-transition-position: -100%;
+  }
+  100% {
+    --lilith-transition-position: 200%;
+  }
+}
