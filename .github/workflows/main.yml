@@ -22,6 +22,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Login
+        run: |
+          git config --global user.email juergenie@qq.com
+          git config --global user.name "action-flow"
+
       - name: Checkout
         uses: actions/checkout@v2.3.4
 
