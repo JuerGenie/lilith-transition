@@ -13,9 +13,7 @@ try {
 
   let module_url = import.meta.url;
   if (meta.content === "true") {
-    module_url += `${
-      import.meta.url.includes("?") ? "&" : "?"
-    }lilith-debug=true`;
+    module_url += `${module_url.includes("?") ? "&" : "?"}lilith-debug=true`;
   }
 
   // 注册自定义属性，并添加 worklet 模块。
