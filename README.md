@@ -17,10 +17,15 @@ No reason, just want to try **new** things😀.
   1. add script tag into your html:
 
      ```html
-     <script type="module" src="/static/lilith-transition.es.js"></script>
+     <script type="module" src="https://raw.githubusercontent.com/JuerGenie/lilith-transition/master/release/index.js"></script>
      ```
 
-     of course, you need copy the file into your project before I settle this repository's release tag😀.
+     **TIPS**: this resource always is latest version, if you want to fixed version, you should copy the file into your project's static folder.
+
+  2. add style into your element:
+     ```html
+     <div style="background-image: paint(lilith-transition); --lilith-transition-position: 50%"></div>
+     ```
 
 #### How to use `LILITH-TRANSITION`
 
@@ -50,9 +55,9 @@ No reason, just want to try **new** things😀.
    </script>
    ```
 
-If you want to use `LILITH-TRANSITION`, see `example` folder, the `scss` file (`example/style.scss`) defined some stylesheet class to help you for use this.
+See `example` folder, the `scss` file (`example/style.scss`) defined some stylesheet class to help you for use this.
 
-And if you want know what is the example's look like, you can try:
+And if you want to know what is the example's look like, you can try:
 
 1. clone this repository
 2. run `yarn`
