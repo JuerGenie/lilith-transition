@@ -443,12 +443,12 @@ function create_fragment(ctx) {
 			insert(target, t1, anchor);
 			insert(target, div, anchor);
 			append(div, slot_1);
-			/*slot_1_binding*/ ctx[6](slot_1);
+			/*slot_1_binding*/ ctx[7](slot_1);
 
 			if (!mounted) {
 				dispose = [
-					listen(div, "mouseenter", /*mouseenter_handler*/ ctx[7]),
-					listen(div, "mouseleave", /*mouseleave_handler*/ ctx[8])
+					listen(div, "mouseenter", /*mouseenter_handler*/ ctx[8]),
+					listen(div, "mouseleave", /*mouseleave_handler*/ ctx[9])
 				];
 
 				mounted = true;
@@ -465,7 +465,7 @@ function create_fragment(ctx) {
 			detach(style);
 			if (detaching) detach(t1);
 			if (detaching) detach(div);
-			/*slot_1_binding*/ ctx[6](null);
+			/*slot_1_binding*/ ctx[7](null);
 			mounted = false;
 			run_all(dispose);
 		}
@@ -478,6 +478,11 @@ function instance($$self, $$props, $$invalidate) {
 	let { height = "200px" } = $$props;
 	let content_element;
 	let slot;
+
+	function update_content() {
+		$$invalidate(6, content_element = slot.assignedElements());
+	}
+
 	const dispatch = createEventDispatcher();
 	let timer = 0;
 	let canTrans = true;
@@ -525,12 +530,12 @@ function instance($$self, $$props, $$invalidate) {
 		if ($$self.$$.dirty & /*slot*/ 4) {
 			{
 				if (slot) {
-					$$invalidate(5, content_element = slot.assignedElements());
+					update_content();
 				}
 			}
 		}
 
-		if ($$self.$$.dirty & /*slot, content_element, current_index*/ 52) {
+		if ($$self.$$.dirty & /*slot, content_element, current_index*/ 84) {
 			// const dispatch = createEventDispatcher();
 			{
 				if (slot) {
@@ -559,6 +564,7 @@ function instance($$self, $$props, $$invalidate) {
 		slot,
 		canTrans,
 		current_index,
+		update_content,
 		content_element,
 		slot_1_binding,
 		mouseenter_handler,
@@ -581,7 +587,12 @@ class Carousel extends SvelteElement {
 			instance,
 			create_fragment,
 			safe_not_equal,
-			{ current_index: 4, width: 0, height: 1 }
+			{
+				current_index: 4,
+				width: 0,
+				height: 1,
+				update_content: 5
+			}
 		);
 
 		if (options) {
@@ -597,7 +608,7 @@ class Carousel extends SvelteElement {
 	}
 
 	static get observedAttributes() {
-		return ["current_index", "width", "height"];
+		return ["current_index", "width", "height", "update_content"];
 	}
 
 	get current_index() {
@@ -625,6 +636,10 @@ class Carousel extends SvelteElement {
 	set height(height) {
 		this.$set({ height });
 		flush();
+	}
+
+	get update_content() {
+		return this.$$.ctx[5];
 	}
 }
 
