@@ -1,25 +1,12 @@
 {
-  "name": "lilith-transition",
-  "version": "0.2.4",
+  "name": "lilith-transition-page-graph",
+  "version": "0.2.5",
   "license": "Apache-2.0",
   "author": {
     "name": "Juergenie Whang",
     "url": "https://github/juergenie",
     "email": "juergenie@qq.com"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "dist/src/index.d.ts",
-  "files": [
-    "dist/types",
-    "dist/index.js",
-    "dist/index.js.map",
-    "src",
-    "rollup.config.js",
-    "license",
-    "README.md",
-    "tsconfig.json"
-  ],
   "scripts": {
     "dev": "cd ./dist && live-server --entry-file=index.html",
     "watch": "rollup -c -w",
@@ -45,7 +32,7 @@
   },
   "dependencies": {
     "lilith-painter": "^0.1.2",
-    "lilith-transition": "^0.2.4",
+    "lilith-transition": "^0.2.5",
     "svelte-spa-router": "^3.2.0"
   }
 }

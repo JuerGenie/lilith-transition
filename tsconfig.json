@@ -15,6 +15,6 @@
     "keyofStringsOnly": true,
     "baseUrl": "./src",
   },
-  "include": ["./src", "./example"],
+  "include": ["./src"],
   "exclude": ["./dist/**/*.d.ts"]
 }
