@@ -1,6 +1,6 @@
 {
   "name": "lilith-transition",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "Apache-2.0",
   "author": {
     "name": "Juergenie Whang",
@@ -11,9 +11,7 @@
   "module": "dist/index.js",
   "typings": "dist/src/index.d.ts",
   "files": [
-    "dist/types",
-    "dist/index.js",
-    "dist/index.js.map",
+    "dist",
     "src",
     "rollup.config.js",
     "license",
