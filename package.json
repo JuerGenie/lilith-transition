@@ -10,6 +10,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "typings": "dist/src/index.d.ts",
+  "homepage": "https://github.com/juergenie/lilith-transition",
   "files": [
     "dist",
     "src",
