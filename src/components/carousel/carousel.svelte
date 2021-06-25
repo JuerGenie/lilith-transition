@@ -10,9 +10,12 @@
   let content_element: HTMLElement[];
 
   let slot: HTMLSlotElement;
+  export function update_content() {
+    content_element = slot.assignedElements() as HTMLElement[];
+  }
   $: {
     if (slot) {
-      content_element = slot.assignedElements() as HTMLElement[];
+      update_content();
     }
   }
 
