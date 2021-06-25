@@ -1,5 +1,7 @@
 import "./style.scss";
 
+import("../src");
+
 const demo_with_mask = document.querySelector(".with-mask") as HTMLDivElement;
 const top = demo_with_mask.querySelector(".top") as HTMLDivElement;
 
