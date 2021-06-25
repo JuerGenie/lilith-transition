@@ -12,6 +12,23 @@ No reason, just want to try **new** things😀.
 
 #### How to import `LILITH-TRANSITION`
 
+- Use Node.js (with `rollup.js`):
+  1. install `LILITH-TRANSITION`:
+
+     ```shell
+     npm install lilith-transition -S
+     ```
+
+  2. import `LILITH-TRANSITION` on anywhere:
+     
+     ```javascript
+     // import all (painter and web-components).
+     import("lilith-transition");
+
+     // import painter only.
+     import("lilith-transition/painter");
+     ```
+
 - Use CDN:
 
   1. add script tag into your html:

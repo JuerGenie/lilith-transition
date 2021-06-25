@@ -7,6 +7,31 @@
     <meta name="lilith-debug" content="true" />
     <title>Vite App</title>
     <link rel="stylesheet" href="/dist/example/style.css" />
+    <style>
+      .text-stroke {
+        --inner-stroke-color: var(--text-stroke-color, white);
+        --inner-stroke-width: var(--text-stroke-width, 2px);
+        text-shadow: var(--inner-stroke-width) 0 0 var(--inner-stroke-color),
+          0 var(--inner-stroke-width) 0 var(--inner-stroke-color),
+          calc(var(--inner-stroke-width) * -1) 0 0 var(--inner-stroke-color),
+          0 calc(var(--inner-stroke-width) * -1) 0 var(--inner-stroke-color),
+          var(--inner-stroke-width) var(--inner-stroke-width) 0
+            var(--inner-stroke-color),
+          calc(var(--inner-stroke-width) * -1) var(--inner-stroke-width) 0
+            var(--inner-stroke-color),
+          var(--inner-stroke-width) calc(var(--inner-stroke-width) * -1) 0
+            var(--inner-stroke-color),
+          calc(var(--inner-stroke-width) * -1)
+            calc(var(--inner-stroke-width) * -1) 0 var(--inner-stroke-color);
+      }
+      .lilith-carousel-test-div {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
@@ -70,8 +95,78 @@
           </div>
         </div>
       </div>
+      <hr />
+      <div class="row">
+        <h2>WEB COMPONENTS</h2>
+        <div class="col">
+          <h3>&lt;lilith-carousel /&gt;</h3>
+          <lilith-carousel
+            current_index="2"
+            width="400px"
+            height="400px"
+            style="--lilith-transition-density: 10px"
+          >
+            <div
+              class="lilith-carousel-test-div"
+              style="background-color: cadetblue"
+            >
+              <h3 class="text-stroke">
+                HELLO<br />
+                CADETBLUE!
+              </h3>
+            </div>
+            <div
+              class="lilith-carousel-test-div"
+              style="background-color: hotpink"
+            >
+              <h3 class="text-stroke">
+                HELLO<br />
+                HOTPINK!
+              </h3>
+            </div>
+            <div
+              class="lilith-carousel-test-div"
+              style="
+                background: url('/static/avatar.png');
+                background-position: 50% 50%;
+              "
+            >
+              <h3 class="text-stroke">
+                HELLO<br />
+                HOUDINI APIS!
+              </h3>
+            </div>
+            <div
+              class="lilith-carousel-test-div"
+              style="background-color: white"
+            >
+              <h3
+                class="text-stroke"
+                style="--text-stroke-color: #eee; --text-stroke-width: 4px"
+              >
+                HELLO<br />
+                LILITH!
+              </h3>
+            </div>
+          </lilith-carousel>
+          <button id="btn">click me!</button>
+        </div>
+      </div>
     </div>
-    <script src="/dist/index.js" type="module"></script>
     <script src="/dist/example/main.js" type="module"></script>
+    <script type="module">
+      await customElements.whenDefined("lilith-carousel");
+
+      const carousel = document.querySelector("lilith-carousel");
+      console.log("init!", carousel);
+      carousel.$on("change", (evt) => {
+        console.log("carousel current index -> ", evt.detail.current_index);
+      });
+
+      const btn = document.querySelector("#btn");
+      btn.addEventListener("click", (evt) => {
+        carousel.current_index = 0;
+      });
+    </script>
   </body>
 </html>
