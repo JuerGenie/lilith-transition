@@ -12,7 +12,7 @@ try {
   ) as HTMLMetaElement;
 
   let module_url = import.meta.url;
-  if (meta.content === "true") {
+  if (meta && meta.content === "true") {
     module_url += `${module_url.includes("?") ? "&" : "?"}lilith-debug=true`;
   }
 

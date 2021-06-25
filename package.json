@@ -1,6 +1,6 @@
 {
   "name": "lilith-transition",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "license": "Apache-2.0",
   "author": {
     "name": "Juergenie Whang",
@@ -10,6 +10,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "typings": "dist/src/index.d.ts",
+  "homepage": "https://github.com/juergenie/lilith-transition",
   "files": [
     "dist",
     "src",
