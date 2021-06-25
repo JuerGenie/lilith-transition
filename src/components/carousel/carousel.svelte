@@ -6,20 +6,26 @@
   export let current_index: number = 0;
   export let width: string = "200px";
   export let height: string = "200px";
+  export let stop_when_hover: boolean = false;
 
   let content_element: HTMLElement[];
 
   let slot: HTMLSlotElement;
   export function update_content() {
     content_element = slot.assignedElements() as HTMLElement[];
-  }
-  $: {
-    if (slot) {
-      update_content();
-    }
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+      if (canTrans) {
+        current_index += 1;
+        if (current_index >= content_element.length) {
+          current_index = 0;
+        }
+        dispatch("change", { current_index });
+      }
+    }, 4000) as unknown as number;
   }
 
-  // const dispatch = createEventDispatcher();
   $: {
     if (slot) {
       const target = content_element[current_index];
@@ -40,17 +46,7 @@
   let timer = 0;
   let canTrans = true;
   onMount(() => {
-    if (content_element.length > 1) {
-      timer = setInterval(() => {
-        if (canTrans) {
-          current_index += 1;
-          if (current_index >= content_element.length) {
-            current_index = 0;
-          }
-          dispatch("change", { current_index });
-        }
-      }, 4000) as unknown as number;
-    }
+    update_content();
   });
   onDestroy(() => {
     clearInterval(timer);
@@ -97,8 +93,8 @@
   <div
     style={`width: ${width}; height: ${height}; position: relative;`}
     part="content"
-    on:mouseenter={() => (canTrans = false)}
-    on:mouseleave={() => (canTrans = true)}
+    on:mouseenter={() => stop_when_hover && (canTrans = false)}
+    on:mouseleave={() => stop_when_hover && (canTrans = true)}
   >
     <slot bind:this={slot} />
   </div>
@@ -107,8 +103,8 @@
 <style lang="scss">
   [part="content"] {
     transition: box-shadow 100ms;
-    &:hover {
-      box-shadow: 0 4px 16px 0 #000;
-    }
+    // &:hover {
+    //   box-shadow: 0 4px 16px 0 #000;
+    // }
   }
 </style>
