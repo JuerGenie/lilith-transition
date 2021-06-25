@@ -1,14 +1,22 @@
 <svelte:options tag="lilith-app" />
 
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
+
   import background_1 from "../assets/background-1.png";
   import background_2 from "../assets/background-2.jpg";
+  import type Carousel from "lilith-transition/dist/src/components/carousel";
 
   let name = "lilith";
 
   const to_my_homepage = () => {
     window.open("https://github.com/juergenie", "_blank");
   };
+
+  let carousel: HTMLElement;
+  onMount(() => {
+    (carousel as unknown as Carousel.Carousel).update_content();
+  });
 </script>
 
 <svelte:head>
@@ -26,7 +34,7 @@
 
   <main>HELLO, LILITH!</main>
 
-  <lilith-carousel width="100%" height="100%">
+  <lilith-carousel bind:this={carousel} width="100%" height="100%">
     <div
       class="background"
       style={`background-image: url("${background_1}")`}
