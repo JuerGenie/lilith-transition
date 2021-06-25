@@ -1,0 +1,3 @@
+import "./painter";
+import * as components from "./components";
+export { components };

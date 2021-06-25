@@ -1,3 +1,4 @@
+import('../index.js');
 const demo_with_mask = document.querySelector(".with-mask");
 const top = demo_with_mask.querySelector(".top");
 demo_with_mask.addEventListener("mouseenter", () => {
