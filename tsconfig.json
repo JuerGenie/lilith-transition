@@ -12,7 +12,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "keyofStringsOnly": true
+    "keyofStringsOnly": true,
+    "baseUrl": "./src",
   },
-  "include": ["./src", "./example"]
+  "include": ["./src", "./example"],
+  "exclude": ["./dist/**/*.d.ts"]
 }
