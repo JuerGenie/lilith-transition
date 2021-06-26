@@ -39,4 +39,4 @@ jobs:
 
       - name: Release
         #if: ${{ github.base_ref == 'gh-graph' }}
-        run: rm -rf ./release && mv ./dist ./release && git add ./release && git commit -m 'release by ${{ github.actor }}.' && git push
+        run: rm -rf ./docs && mv ./dist ./docs && git add ./docs && git commit -m 'release by ${{ github.actor }}.' && git push
