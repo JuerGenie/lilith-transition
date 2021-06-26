@@ -24,6 +24,7 @@ jobs:
     steps:
       - name: Login
         run: |
+          echo ${{ github.base_ref }}
           git config --global user.email juergenie@qq.com
           git config --global user.name "action-flow"
 
