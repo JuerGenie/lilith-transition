@@ -67,6 +67,8 @@
       style.transition.max_size = style.transition.density;
     }
   }
+
+  const support = "paintWorklet" in CSS;
 </script>
 
 <svelte:head>
@@ -76,89 +78,103 @@
 <template>
   <header>
     <h1 class="page-btn" on:click={to_repository}>LILITH-TRANSITION</h1>
+    <h5 style="line-height: 78px; margin-left: 1rem;">VERSION: 0.2.9</h5>
     <div class="space" />
     <h5 class="page-btn" on:click={to_my_homepage}>POWERED BY @JUERGENIE</h5>
   </header>
 
   <main>
     <h1>Hello, Lilith!</h1>
-    <h3>调整以下参数，查看背景动画的变化😀</h3>
-    <hr />
-    <div class="content">
-      <label>
-        <div class="title">BLUR 模糊: {style.blur}px</div>
-        <span class="left">0px</span>
-        <input
-          class="range"
-          bind:value={style.blur}
-          type="range"
-          max="10"
-          min="0"
-          step="1"
-        />
-        <span class="right">10px</span>
-      </label>
-      <label>
-        <div class="title">DENSITY 密度: {style.transition.density}px</div>
-        <span class="left">10px</span>
-        <input
-          class="range"
-          bind:value={style.transition.density}
-          type="range"
-          max="100"
-          min="10"
-          step="1"
-        />
-        <span class="right">100px</span>
-      </label>
-      <label>
-        <div class="title">LENGTH 渐变长度: {style.transition.length}%</div>
-        <span class="left">20%</span>
-        <input
-          class="range"
-          bind:value={style.transition.length}
-          type="range"
-          max="100"
-          min="20"
-          step="1"
-        />
-        <span class="right">100%</span>
-      </label>
-      <label>
-        <div class="title">
-          MAX-SIZE 图形最大尺寸: {style.transition.max_size}px
-        </div>
-        <span class="left">0px</span>
-        <input
-          class="range"
-          bind:value={style.transition.max_size}
-          type="range"
-          max="100"
-          min="0"
-          step="1"
-          disabled={attribute_association}
-        />
-        <span class="right">100px</span>
-      </label>
-      <label>
-        <div class="title">
-          将尺寸与密度关联
+    {#if support}
+      <h3>调整以下参数，查看背景动画的变化😀</h3>
+      <hr />
+      <div class="content">
+        <label>
+          <div class="title">BLUR 模糊: {style.blur}px</div>
+          <span class="left">0px</span>
           <input
-            class="title"
-            type="checkbox"
-            bind:checked={attribute_association}
+            class="range"
+            bind:value={style.blur}
+            type="range"
+            max="10"
+            min="0"
+            step="1"
           />
-        </div>
-      </label>
-      <label>
-        <div class="title">STYLE 风格: {style.transition.style}</div>
-        <select class="range" bind:value={style.transition.style}>
-          <option label="fade-in" value="fade-in" />
-          <!-- <option label="fade-out" value="fade-out" /> -->
-          <!-- <option label="fade-in-out" value="fade-in-out" /> -->
-        </select>
-      </label>
-    </div>
+          <span class="right">10px</span>
+        </label>
+        <label>
+          <div class="title">DENSITY 密度: {style.transition.density}px</div>
+          <span class="left">10px</span>
+          <input
+            class="range"
+            bind:value={style.transition.density}
+            type="range"
+            max="100"
+            min="10"
+            step="1"
+          />
+          <span class="right">100px</span>
+        </label>
+        <label>
+          <div class="title">LENGTH 渐变长度: {style.transition.length}%</div>
+          <span class="left">20%</span>
+          <input
+            class="range"
+            bind:value={style.transition.length}
+            type="range"
+            max="100"
+            min="20"
+            step="1"
+          />
+          <span class="right">100%</span>
+        </label>
+        <label>
+          <div class="title">
+            MAX-SIZE 图形最大尺寸: {style.transition.max_size}px
+          </div>
+          <span class="left">0px</span>
+          <input
+            class="range"
+            bind:value={style.transition.max_size}
+            type="range"
+            max="100"
+            min="0"
+            step="1"
+            disabled={attribute_association}
+          />
+          <span class="right">100px</span>
+        </label>
+        <label>
+          <div class="title">
+            将尺寸与密度关联
+            <input
+              class="title"
+              type="checkbox"
+              bind:checked={attribute_association}
+            />
+          </div>
+        </label>
+        <label>
+          <div class="title">STYLE 风格: {style.transition.style}</div>
+          <select class="range" bind:value={style.transition.style}>
+            <option label="fade-in" value="fade-in" />
+          </select>
+        </label>
+      </div>
+    {:else}
+      <h3>
+        很抱歉，您当前的浏览器不支持 LILITH-TRANSITION
+        所依赖的特性，请尝试更换更新的浏览器，或在
+        <a target="_blank" href="https://ishoudinireadyyet.com"> 此页面 </a>
+        查看浏览器支持情况。
+      </h3>
+      <h3>
+        Sorry, your current browser does not support the features that
+        LILITH-TRANSITION relies on. Please try a newer browser or check the
+        browser support status on
+        <a target="_blank" href="https://ishoudinireadyyet.com">this page</a>.
+      </h3>
+    {/if}
   </main>
 
   <div class="background-carousel">
