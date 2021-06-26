@@ -1969,10 +1969,10 @@ lilith-painter@^0.1.2:
   resolved "https://registry.npmjs.org/lilith-painter/-/lilith-painter-0.1.2.tgz#7a0fdc1db643a3dfd59d1cbe37ab5514dbc2ae20"
   integrity sha512-xJmlWCancd335e9jIBN+kse9x/nXJh14Q0u73/uprlogom2rAGRcaVeHXt1Sfygl6sITJklC08t+kgdPcvkCkA==
 
-lilith-transition@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.npmjs.org/lilith-transition/-/lilith-transition-0.2.7.tgz#2ca3e2001a09002448f70e3ab8ff4c584f6b6d90"
-  integrity sha512-7HMY4CmBL+g9slOYWoEyv8tVbcBFsBFH6A6TpBAekcVnu8KyHo1WDQRZcBffnQu6W2rEJOtqPuMv0GPuAaeoMw==
+lilith-transition@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.npmjs.org/lilith-transition/-/lilith-transition-0.2.9.tgz#f15932dacf82476ea02a4b4361f9bce6f4226b27"
+  integrity sha512-f+7NvZ8ja7HVZqhhAw+W2lUq+LelbcUAb4HzCMuTvohGh2WgjffZbaewI2VS9ctvjCCOXIvi6jtKF5btse19ew==
   dependencies:
     lilith-painter "^0.1.2"
 
